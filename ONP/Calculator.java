@@ -2,7 +2,7 @@ package ONP;
 
 public class Calculator {
 	
-	private IntStack stack;
+	private DoubleStack stack;
 	private String input;
 	
 	public Calculator(String input) {
@@ -10,7 +10,7 @@ public class Calculator {
 	}
 	
 	public double count() {
-		stack = new IntStack(20);
+		stack = new DoubleStack(20);
 		char ch;
 		double number1, number2;
 		double result;
