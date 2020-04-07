@@ -19,6 +19,8 @@ public class Calculator {
 			
 			if ( ch >= '0' && ch <= '9') {
 				stack.push( (int) ch - '0');
+			} else if (ch == ' ') {
+				continue;
 			}
 			else {
 				number2 = stack.pop();
@@ -51,5 +53,51 @@ public class Calculator {
 		result = stack.pop();
 		return result;
 	}
+	
+	public double count2() {
+		input = input.trim();
+		stack = new DoubleStack(20);
+		double number1, number2;
+		double result;
+		String[] tab;
+		tab = input.split(" +"); 
+		
+		for  (String tabs : tab) {
+			if (!tabs.equals("+") && !tabs.equals("-") && !tabs.equals("*") && !tabs.equals("/")) {
+				double value = Double.parseDouble(tabs);
+				stack.push(value); 
+			} else {
+				number2 = stack.pop();
+				number1 = stack.pop();
+				
+				switch(tabs) {
+				
+				case "+": 
+					result = number1 + number2;
+					break;
+					
+				case "-":
+					result = number1 - number2;
+					break;
+					
+				case "*":
+					result = number1 * number2;
+					break;
+					
+				case "/": 
+					result = number1 / number2;
+					break;
+					
+				default:
+					result = 0;
+				}
+				stack.push(result);
+			}
+		}
+		result = stack.pop();
+		return result;
+	}
+	
+	
 
 }

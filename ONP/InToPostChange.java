@@ -16,6 +16,7 @@ public class InToPostChange {
 		for (int i = 0; i < input.length(); i++) {
 			char ch = input.charAt(i);
 			
+			
 			switch(ch) {
 			
 			case '+':
@@ -35,6 +36,9 @@ public class InToPostChange {
 			case ')': 
 				gotParentheness(ch);
 				break;
+				
+			case ' ':
+				continue;
 			
 			default: 
 				output = output + ch;
@@ -44,7 +48,7 @@ public class InToPostChange {
 			}
 		}
 		while ( !stack.isEmpty()) {
-			output = output + stack.pop();
+			output = output + " " +  stack.pop();
 		}
 		return output;
 	}
@@ -67,10 +71,11 @@ public class InToPostChange {
 					stack.push(ch);
 					break;
 				} else {
-					output = output + ch;
+					output = output + " " + ch;
 				}
 			}
 		}
+		output = output + " ";
 		stack.push(operand);
 	}
 	
@@ -81,7 +86,7 @@ public class InToPostChange {
 			if(ch == '(') {
 				break;
 			} else {
-				output = output + ch;
+				output = output + " " + ch;
 			}
 		}
 	}
