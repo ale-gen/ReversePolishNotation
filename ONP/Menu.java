@@ -9,7 +9,7 @@ public class Menu {
 	
 	public void menuChoice() {
 		System.out.println("Menu : "); 
-		System.out.println("1 : Wprowadź własne wyrażenie (każdy znak oddzielamy spacją, np. 2 * (4 + 5)");
+		System.out.println("1 : Wprowadź własne wyrażenie");
 		System.out.println("2 : Odczytaj z pliku"); 
 		System.out.println("0 : Wyjście");
 	}
